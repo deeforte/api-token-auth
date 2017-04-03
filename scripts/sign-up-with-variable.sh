@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-in
+#EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-up-with-variables
 API="${API_ORIGIN:-http://localhost:4741}"
-  URL_PATH="/sign-in"
+  URL_PATH="/sign-up"
   curl "${API}${URL_PATH}" \
     --include \
     --request POST \
@@ -10,8 +10,10 @@ API="${API_ORIGIN:-http://localhost:4741}"
     --data '{
       "credentials": {
         "email": "'"${EMAIL}"'",
-        "password": "'"${PASSWORD}"'"
+        "password": "'"${PASSWORD}"'",
+        "password_confirmation": "'"${PASSWORD}"'"
       }
     }'
 
+# data output from curl doesn't have a trailing newline
 echo
